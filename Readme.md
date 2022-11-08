@@ -9,3 +9,6 @@ Nova inclusão de texto aqui.
 
 Versão 1.2
 Inclusão de texto...
+
+Versão 1.3
+teste novo
