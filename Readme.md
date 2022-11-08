@@ -1,4 +1,4 @@
 Configuração do git e do github.
 
-Alteração no arquivo.
-Nova alteração.
+Versão 1.0
+Alteração de texto
