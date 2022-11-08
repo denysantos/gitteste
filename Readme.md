@@ -6,3 +6,6 @@ Alteração de texto
 
 Versão 1.1 
 Nova inclusão de texto aqui.
+
+Versão 1.2
+Inclusão de texto...
