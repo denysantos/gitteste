@@ -12,3 +12,6 @@ Inclusão de texto...
 
 Versão 1.3
 teste novo
+
+Versão 1.4
+Nova alteração de arquivo.
