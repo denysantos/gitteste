@@ -1,0 +1,176 @@
+Configurando o GIT
+	git config --global user.name "Deny Santos"
+	git config --global user.email "deny.santos@outlook.com"
+	git config core.editor notepad++
+
+Consultando informações globais 
+	git config user.name 
+	git config user.email 
+
+Criando pasta e inicializando o git 
+	mkdir nome_pasta
+	git init 
+
+Abrindo o editor 
+	vim Readme.md 
+	
+Editando o arquivo no vim 
+	Tecla I para inserir texto
+	Tecla ESC para tirar do modo de gravação
+	Teclas :wq para voltar ao CMD do git 
+	
+Consultando o status do arquivo 
+	git status 
+	
+Fases do git 
+	untracked
+	unmodified
+	modified
+	staged
+
+	Quando o commit é aplicado, o arquivo volta para unmodified.
+	
+Consultando os logs
+	git log 
+	git log --decorate
+	git log --author="Deny"
+		para consultar o nome do autor 
+	git shortlog -sn
+	git log --graph
+	
+Consultando as diferenças do arquivo 
+	git diff 
+	git diff --name-only
+	
+Consultando as alterações dentro do arquivo 
+	git show
+	git show [hash]
+	
+Adicionando o arquivo 
+	git add Readme.md 
+	
+Realizando commit do arquivo 
+	git commit -am "Mensagem"
+	
+
+Desfazendo alterações no arquivo 
+	se realizou a alteração no arquivo e se arrependeu...
+		git checkout Readme.md 
+	
+	se adicionou o arquivo (staged) e deseja voltar...
+		git reset HEAD Readme.md 
+	
+	se deseja fazer uma das 3 alterações: 
+		git reset --soft [hash] 	(desfaz as alterações e volta para staged)
+		git reset --mixed [hash]	(desfaz as alterações e volta para modified)
+		git reset --hard [hash]		(desfaz as alterações por completo, como se nunca houvesse uma.)
+		
+Ligando repositório local a um remoto 
+	Adicionando 
+		git remote add origin git@github.com:[nome_usuario]/[repositório].git 
+	Testando
+		git remote 
+	Push
+		git push origin main ou master 
+	
+
+Clonando um repositório remoto 
+	baixar o clone no github em code > clone 
+		criar uma nova pasta fora da pasta do git local 
+			mkdir [nome_pasta]
+		clonar 
+			git clone git@github.com:denysantos/gitteste.git [nome_pasta]
+		acessar a nova pasta e ver os arquivos baixados no diretório.
+		
+Criando branches
+	git checkout -b testing
+	
+	alterando de branch 
+		git checkout main 
+		
+	consultando o branch atual 
+		git branch 
+		
+	excluindo um branch 
+		git checkout -D [nome_branch]
+		
+Fazendo merge / rebase
+	merge 
+		cria nova pasta 
+			mkdir git-course-rebase-merge 
+			
+		acessa a pasta 
+			cd git-course-rebase-merge
+			
+		inicia o git 
+			git init 
+			
+		inclui um arquivo 
+			vim foo 
+			
+		adiciona e commit no arquivo 
+			git add foo 
+			git commit -m "add foo" 
+			
+		altera para o branch
+			git checkout -b testing 
+			
+		adiciona e commit um novo arquivo 
+			vim bar 
+			git add bar 
+			git commit -m "add bar"
+			
+		volta para o master 
+			git checkout master 
+			
+		adiciona e commit um novo arquivo 
+			vim fizz 
+			git add fizz
+			git commit -m "add fizz"
+			
+		faz um log 
+			git log 
+			
+		visualiza somente os arquivos do branch atual 
+		
+		fazendo um merge 
+			git merge testing
+			
+		consulta novamente o log 
+			git log 
+			git log --graph 
+			
+
+Fazendo rebase 
+		cria arquivo e commit com master 
+		cria novo branch para teste [rebase-branch]
+		cria novo arquivo e commit com rebase-branch
+		faz checkout para master 
+		cria novo arquivo para teste 
+		faz rebase 
+			git rebase rebase-branch
+		confere status 
+			git status
+		confere log 
+			git log
+			git log --graph
+			
+Stash
+	serve para guardar as alterações para depois 
+	
+	vim Readme.md 
+		edita 
+	git status 
+		modified
+	git stash 
+		saved working...
+	git status 
+	git stash apply
+		aplica as alterações armazenadas
+	git stash 
+	git diff 
+	git stash list 
+		lista todos os stashes
+	git stash clear
+		limpa todos os stashes armazenados
+	
